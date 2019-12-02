@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shadows Simulation</title>
+        <script src="shadowsim.js"></script>
+        <style>
+            #topButtons {
+                height: 150px;
+                position: static;
+            }
+            
+            .modes {
+                height: 100px;
+                width: 150px;
+            }
+            
+            /* The slider itself */
+            .slider {
+              -webkit-appearance: none;  /* Override default CSS styles */
+              appearance: none;
+              width: 90%; /* Full-width */
+              height: 1px; /* Specified height */
+              background: #d3d3d3; /* Grey background */
+              outline: none; /* Remove outline */
+              opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+              -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+              transition: opacity .2s;
+            }
+        </style>
+    </head>
+    <body onload="init()">
+        <table>
+            <td>
+                <center>
+                    <div id="topButtons">
+                        <p>Mode</p>
+                        <button onclick="buildingModeHTML()">Building</button><br/>
+                        <button onclick="flagpoleModeHTML()">Flagpole</button>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <center><div id="building" class="modes">
+                            <br/><br/>
+                            <input type="radio" name="sunPos" id="2pm" checked>2pm
+                            <input type="radio" name="sunPos" id="6pm">6pm
+                            <br/><br/>
+                            <select id="buildingChoice">
+                                <option value="" disabled selected>Buildings</option>
+                                <option value="gym">Gym</option>
+                                <option value="bank">Bank</option>
+                                <option value="restaurant">Restuarant</option>
+                                <option value="hospital">Hospital</option>
+                                <option value="apartment">Apartment Building</option>
+                            </select>
+                        <p>(The sun's position is going to be more realistic in the final version. This was just for testing purposes)</p>
+                        </div></center>
+                    <div id="flagpole" class="modes">
+                        <div id="flagContainer">
+                            Flag Height: <span id="flagH">10</span>m
+                            <input type="range" min="1" max="2" value="1" class="slider" id="flagSlider">
+                        </div>
+                        <br/>
+                        <div id="sunContainer">
+                            Sun Position: <span id="sunP">2</span>pm
+                            <input type="range" min="1" max="2" value="1" class="slider" id="sunSlider">
+                        </div>
+                    </div>
+                </center>
+            </td>
+            <td>
+                <canvas id="canvas" style="border: 1px solid black;"></canvas>
+            </td>
+        </table>
+    </body>
+</html>
